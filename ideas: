@@ -1,0 +1,12 @@
+ideas:
+
+- text sentiment analysis (how positive is the discussion) for different stars (bron vs KD)
+- word2vec -> which words are similar to kevin durrant? (predicting people's teammates)
+	-> associate players with words (stephen curry & 3 points/injury)
+- how controversial are stars based on comments? (do people think good or bad about these players?) (business oriented)
+- generate articles
+
+NLTK
+-tokenize
+-stop words
+-stemming (porter stemmer)
