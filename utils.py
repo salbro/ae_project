@@ -2,7 +2,45 @@ import json
 import requests
 from bs4 import BeautifulSoup
 import time
+import re
 
+
+
+########### CLEANING UTILS #############
+
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+stop_words = stopwords.words('english')
+
+from nltk.stem.porter import PorterStemmer
+porter = PorterStemmer()
+
+
+def split_on_caps(s):
+    return re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', ' '.join(s.split()))
+
+def clean(article, stem = False):
+    tokens = word_tokenize(article)
+    words = [word for word in tokens if word.isalpha()]
+    
+    # convert everything to lower case
+    words = [w.lower() for w in words]
+    
+    words = [w for w in words if not w in stop_words]
+    
+    # split on caps
+    words = [split_on_caps(w) for w in words]
+    
+    if stem:
+        words = [porter.stem(word) for word in words]
+        
+    return " ".join(words).split()
+
+
+
+
+
+########### SCRAPING UTILS #############
 def urlify(query): # i googled how to replace certain characters
     return query.replace(" ", "%20").replace("(", "%28").replace(")", "%29").replace(".", "%2E").replace("-", "%2D")
 
