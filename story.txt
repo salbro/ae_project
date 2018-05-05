@@ -1,0 +1,51 @@
+We could build a story around creating a recommender system for bleacher report’s NBA section (it needs to compete with its competitors like ESPN and fox news; analytics provides the edge).
+ 
+In order to create a recommender, we first (1) identify the major topics in the articles using topic modeling (Latenti Dirichlet Allocation).  Then we bucket the documents into buckets based on their topic distributions.
+ 
+Another way we could recommend things is to (2) use word2vec (or an extension, sentence2vec)  to find similarities between article titles.
+ 
+Supposing we know which player a person is interested in, we could (3) use a classification model that predicts whether an article is about a player or not.
+ 
+If we know someone hates kevin durrant we could recommend articles that are (4) negative in sentiment about kevin durrant.
+ 
+To top it all off we could generate articles about a website visitor’s favorite player and put it in the “humor” section – here’s what bleacher report AI thinks you’ll enjoy!
+
+
+
+
+1. Cluster the documents into topic buckets.  Use those to recommend.
+2. Run doc2vec to cluster documents. Compare performance to the LDA's buckets.
+3. 
+
+
+________________________________________________________________________________
+STORY: BUILD A RECOMMENDER SYSTEM
+	1. Way #1: use LDA to recommend based on topics based on BODY (train on bodies) 
+		- express each document as vector (distribution over topics), and find KNN in vector space
+	1. Way #1: use LDA to recommend based on topics based on TITLE (train on titles) (CYRILLE)
+		- express " " title " " " "
+	2. Way #2: use word2vec to suggest based on article's TITLE (take mean of word vectors in title)
+		- train word2vec on bodies
+
+How to measure success: 
+	- show examples of our topics  (ex. lonzo ball, lavar, etc.)
+	- show examples of our word2vec (ex. stephen curry near kevin durrant and warriors in vector space)
+	- eye test
+	- give a bunch of examples
+
+Things to include in writeup:
+	- introduction to the story / movitation
+	- how we chose to remove words from the vocabulary for body-training (using document freq
+	uency from TFIDF)
+	- talk about process of text cleaning
+	- talk about how we got the data
+	- how we chose topics (plot log-likelihood vs. number of topics)
+
+How to improve topics:
+	- number of topics
+	- stopwords (one idea to set max_df to lower (e.g. 0.2) and then add in team names, player names)
+
+
+
+
+

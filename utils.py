@@ -199,7 +199,6 @@ TOP_100_PLAYERS = ['lebron james',
 
 
 
-
 ##### how i got the top 100 names:
 # ## get all NBA players, add them to the query
 # player_url = "https://www.washingtonpost.com/graphics/2017/sports/nba-top-100-players-2017/?utm_term=.856ecec51f15"

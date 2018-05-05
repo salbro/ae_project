@@ -6,6 +6,14 @@ ideas:
 - how controversial are stars based on comments? (do people think good or bad about these players?) (business oriented)
 - generate articles
 
+
+
+Build binary model to see if an article is about Lebron James or not
+Or predict WHICH player an article is about
+
+
+
+
 NLTK
 -tokenize
 -stop words
