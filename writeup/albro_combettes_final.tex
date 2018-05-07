@@ -15,13 +15,30 @@ As avid basketball fans, we have enjoyed reading a variety of NBA articles to ke
 
   In an age of cut-throat digital competition, it is vital for websites to be able to retain visitors. The hope for a Bleacher Report article reader is two-fold. First, that the visitor jumps from article to article \textit{on the website}, rather than returning to the search engine results page.  Second, that the visitor falls in love with the content and coverage of Bleacher Report's articles, and develops a loyalty to the website. \\
 
-We feel that having a micro targetted article recommendation system would provide Bleacher Report with an analytics-based edge over its competitors, since well targeted articles could increase the chances of prolonged visits, and increase website loyalty by making users feel known.  In this paper, we develop a prototype for an article recommendation system using state of the art natural language processing techniques for both cleaning and analyzing bleacher report articles.  Specifically, we aim to cluster over 3000 Bleacher Report articles by testing three different approaches: Topic Modeling, Word2Vec text embeddings, and NMF (CYRILLE WHAT DOES THIS STAND FOR).  \{GO INTO MORE DETAIL HERE ABOUT HOW CLUSTER HELPS THE RECOMMENDER. \}
+We feel that having a micro targetted article recommendation system would provide Bleacher Report with an analytics-based edge over its competitors, since well targeted articles could increase the chances of prolonged visits, and increase website loyalty by making users feel known.  In this paper, we develop a prototype for an article recommendation system using state of the art natural language processing techniques for both cleaning and analyzing bleacher report articles.  Specifically, we aim to cluster over 3000 Bleacher Report articles by testing three different approaches: Topic Modeling, Word2Vec text embeddings, and NMF (CYRILLE WRITE OUT FULL NAME AND TALK ABUOT WHAT NMF IS).  \{GO INTO MORE DETAIL HERE ABOUT HOW CLUSTER HELPS THE RECOMMENDER. \}
 
 % To improve user affinity for Bleacher Report, we even include AI-generated articles, which employ recurrent neural networks trained on our corpus. 
 
 \section{Data Collection and Cleaning}
-- scraping \\ 
-- NLP cleaning (removing stop words, etc.) \\
+\subsection{Data Collection}
+Bleacher Report does not provide easy access to their articles in a public database.  However, News API is a company that provides API access to major news articles from a variety of sources, and this access is free for non-commercial projects. Using NewsAPI, we queried Bleacher Report NBA articles from October 17, the start of the 2017-2018 NBA season. Our entire query consisted of joining words like basketball and NBA with all 30 teams and the top 25 active players.  In the end, we received 3314 URLs (with their corresponding authors, titles, and other metadata) in return.  We then wrote a script to request the webpage for each URL and scrape its content, picking the paragraphs out of the HTML.
+
+\subsection{Data Cleaning}
+In the real world, data is never clean, and this is magnified in the case of textual data. There were a number of preprocessing steps we had to do before our articles were ready for analysis. In our cleaning efforts, we made decisions \textit{based on the purpose of our task} - to cluster documents for better recommendation power.  In particular, a bag-of-words approach to cleaning was preferred over one that preserved punctuation and grammar.  \\
+
+\subsubsection{Punctuation Removal, Initial Stopwords, and Lowercasing}
+First, we tokenized each article. In natural language processing, tokenizing is a way of chopping up a document into pieces, the most obvious way being to tokenize by \textit{word}, which is what we initially did.  Next we discarded any non-alphabetical tokens (e.g. 8pm, 704, !, .), and converted every token to lower case.  After converting everything to lower case, we did our first round of stop word removal (we remove more later).  In  NLP a stop word is any word that you remove because its insignificant for your application. In this first round, we removed basic articles (the, a) and about 170 other words deemed insignificant by Python's Natural Language Toolkit, mostly personal pronouns and simple verbs.
+
+\subsubsection{Specialized NBA Tokenization}
+Next, since we were analyzing NBA articles, we had to take into account the fact that each player (and each team for that matter) can be referred to in a variety of ways. For example, the NBA superstar LeBron James can be called LeBron James, LeBron, Bron, or James, and the Boston Celtics might be formally referred to as such in the title, but in the article's body they might just be Boston. For this reason, we compiled lists of team names, players, and coaches.  For each article, we replaced all forms of each entity with its underscored full version, so that for example LeBron James would always be lebron\_james, no matter if he occurred as Bron, James, or Lebron in a given sentence.  At times it was necessary to infer from ambiguous usage. We concluded that, for example, the word \textit{Boston} should be replaced by boston\_celtics only if the entire phrase Boston Celtics appeared somewhere in the article.  This specialized, application-specific tokenization step allowed us to capture much more information about each superstar/team/coach than would for example, treating Bron as a separate player as Lebron. \\
+
+\subsubsection{Trimming Down the Vocabulary}
+A model is only as good as its input, and so as a last step, we realized that we needed to trim down the vocabulary of our articles. In NLP, a \textit{vocabulary} is simply the complete set of words that the model knows about.  We already removed basic stop words, but figured that many more could be removed. For clustering documents, its important to identify information-containing words (player and team names, high-impact verbs, league terminology), and less important to identify mundane nouns and verbs (table, cup, gave, took) even if their not considered stop words. \\
+
+To identify our functional vocabulary, we used a \textit{document frequency} approach. The document frequency of a given word is simply the fraction of documents (in this case articles) that the word appears in. The word \textit{the}, for example, has a document frequency of 1.0. \\
+
+%%
+
 
 \section{Methods}
 - include tuning and cross validation, etc. \\
