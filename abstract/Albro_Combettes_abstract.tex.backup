@@ -1,0 +1,114 @@
+\documentclass{article}
+
+% if you need to pass options to natbib, use, e.g.:
+% \PassOptionsToPackage{numbers, compress}{natbib}
+% before loading nips_2017
+%
+% to avoid loading the natbib package, add option nonatbib:
+% \usepackage[nonatbib]{nips_2017}
+
+%\usepackage{nips_2017}
+
+% to compile a camera-ready version, add the [final] option, e.g.:
+ \usepackage[final]{nips_2017_abstract}
+
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac}       % compact symbols for 1/2, etc.
+\usepackage{microtype}      % microtypography
+
+\title{Basketball Article Recommender\\
+for Bleacher Report}
+
+% The \author macro works with any number of authors. There are two
+% commands used to separate the names and addresses of multiple
+% authors: \And and \AND.
+%
+% Using \And between authors leaves it to LaTeX to determine where to
+% break the lines. Using \AND forces a line break at that point. So,
+% if LaTeX puts 3 of 4 authors names on the first line, and the last
+% on the second line, try using \AND instead of \And before the third
+% author name.
+
+\author{
+  Stephen Albro\\
+  Master of Business Analytics\\
+  Massachusetts Institute of Technology\\
+  Cambridge, MA 02139\\
+  \texttt{salbro@mit.edu}\\
+  %% examples of more authors
+   \And
+   Cyrille Combettes \\
+   Master of Business Analytics\\
+  Massachusetts Institute of Technology\\
+  Cambridge, MA 02139\\
+   \texttt{cyrille@mit.edu} \\
+  %% \AND
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+  %% \And
+  %% Coauthor \\
+  %% Affiliation \\
+  %% Address \\
+  %% \texttt{email} \\
+}
+
+\begin{document}
+% \nipsfinalcopy is no longer used
+
+\maketitle
+
+% \begin{abstract}
+%   The abstract paragraph should be indented \nicefrac{1}{2}~inch
+%   (3~picas) on both the left- and right-hand margins. Use 10~point
+%   type, with a vertical spacing (leading) of 11~points.  The word
+%   \textbf{Abstract} must be centered, bold, and in point size 12. Two
+%   line spaces precede the abstract. The abstract must be limited to
+%   one paragraph.
+% \end{abstract}
+
+\section{Description}
+
+This project aims at using machine learning to generate ESPN articles.
+The idea is to write a program to scrape a bunch of articles to form a training corpus,
+and then build machine learning algorithms to generate new articles.
+
+\section{Data}
+
+We will query articles from the ESPN API, available at
+\url{http://www.espn.com/static/apis/devcenter/docs/headlines.html#what-it-returns}.
+There are parameters that we can use in the query to return news for a specific date,
+to disable specific information, to access to top stories as selected by ESPN editorial staff,
+to access to news for a particular sport,
+or to access to stories about a particular athlete, for example.
+
+\section{Techniques}
+
+Recurrent neural networks can be used as generative models. 
+We will train such a network on the text of many sports articles (via ESPN API) using the
+Python libraries Keras and/or Tensorflow.  For this project we will be using the long short-term memory
+(LSTM) model which attempts to add memory into the architecture of a neural network. 
+LSTMs can take a while to train, so we will seek to use GPUs in a cloud computing environment, either through AWS or MIT.
+
+\section{Impact}
+
+The impact of this project is to evaluate if ESPN articles follow a recognizable pattern.
+It is widely known that an article on a basketball game, for example, is written during -- and even before! --
+the game, and we want to investigate to what extent the article is \emph{independant} of the specifics
+of the game: is the article a frame in which the reporter would just enter values for the score, the winning
+team, the losing team, and some lexical field words based on the reader's expected opinion? Or are the ESPN
+reporters true novelists? Answering this, we will assess if ESPN articles are a scam to put into the fake
+news category, or interesting and constructive information.
+
+\end{document}
