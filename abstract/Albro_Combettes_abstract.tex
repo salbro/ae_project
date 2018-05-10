@@ -128,12 +128,13 @@ over one that preserved punctuation and grammar.
 
 \section{Key results}
 
-Recurrent neural networks can be used as generative models. 
-We will train such a network on the text of many sports articles (via ESPN API) using the
-Python libraries Keras and/or Tensorflow. For this project we will be using the long short-term memory
-(LSTM) model which attempts to add memory into the architecture of a neural network. 
-LSTMs can take a while to train, so we will seek to use GPUs in a cloud computing environment, 
-either through AWS or MIT.
+The idea of our recommendation algorithm is to (1) generate topics from our corpus once for all
+before (2)
+recommending articles using a nearest-neighbor approach over the topic distributions of the reader's 
+recent articles. We try both LDA and NMF, and it turns out LDA has the best results for our experiment.
+Thus, we then explore the LDA-based recommmendation algorithm more in depth and display
+insightful visualizations. Topics include \emph{Stats}, \emph{Trade rumors}, \emph{Cleveland Cavaliers},
+\emph{NCAA}, and \emph{Outliers\_NFL} and \emph{Outliers\_EuropeanSoccer}.
 
 % \section{Impact}
 % 
