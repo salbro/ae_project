@@ -42,7 +42,9 @@ A model is only as good as its input, and so as a last step, we realized that we
 
 To identify our functional vocabulary, we used a \textit{document frequency} approach. The document frequency of a given word is simply the fraction of documents (in this case articles) that the word appears in. The word \textit{the}, for example, has a document frequency of 1.0. If a word occurs too \textit{infrequently}, it is probably a unique name or an article-specific entity, and thus unhelpful in forming clusters. On the other hand, if a word occurs too \textit{frequently}, it is probably a common word and thus contains very little information related to topics.  \\
 
-Thus, we sought lower and upper document frequency cutoffs for including a word in the vocabulary.  As a sanity check, we knew our upper cutoff had to be at least high than the document frequency of LeBron James (0.22, he the most famous superstar), since every player should be in our vocabulary. After seeing irrelevant words present with an upper cutoff of even 0.5, we knew that the upper cutoff had to be lower than that, and decided upon 0.35 after experimentation (at this point the eye test was possible). Our lower cutoff was 0.01, which means that if a word appeared in less than 34 out of 3314 total articles, it was discarded.  In total, the new vocabulary consisted of about 3500 tokens with document frequencies within the range (0.01, 0.35), including the major players and teams, and, we think, the important, topic-filled sports and NBA terminology. To give a sense, some of the first few tokens printed from our vocab set include \textit{son, statistics, honor, turnover, athleticism, pulled, dribble, andrew\_wiggins, offseasons, attitude, cuts,} and \textit{jump}.  
+Thus, we sought lower and upper document frequency cutoffs for including a word in the vocabulary.  As a sanity check, we knew our upper cutoff had to be at least high than the document frequency of LeBron James (0.22, he the most famous superstar), since every player should be in our vocabulary. After seeing irrelevant words present with an upper cutoff of even 0.5, we knew that the upper cutoff had to be lower than that, and decided upon 0.23 after experimentation (at this point the eye test was possible). Our lower cutoff was 0.01, which means that if a word appeared in less than 34 out of 3314 total articles, it was discarded.  In total, the new vocabulary consisted of about 3500 tokens with document frequencies within the range (0.01, 0.23), including the major players and teams, and, we think, the important, topic-filled sports and NBA terminology. To give a sense, some of the first few (stemmed) tokens printed from our vocab set include \textit{fewest, monday, march, eric\_bledso, toronto, decid, blowout, jae\_crowd,} and \textit{aggress}.  
+
+%Jae Crowder and Eric Bledso are included, as are all NBA players by virtue of Lebron James being included.
 
 
 \section{Methods}
@@ -76,14 +78,49 @@ This is a bag-of-words model because the generative story says nothing about gra
 \subsubsection{Approach}
 We trained LDA models on the cleaned Bleacher Report articles using Python's sklearn libraries.  When training the models, two hyper-parameters needed to be fine-tuned. The first was $K$, the number of topics to ask for.  The second was $\gamma$, the learning rate of the solver.  (TALK MORE ABOUT THIS?). We decided to use a grid search cross validation approach. Since topic modeling is an unsupervised problem, there was no need for a separate validation set.  Instead we used the log-likelihood of the trained model as our measure of model quality. 
 
-We found that for $k \in \{10, 15, 20, 25, 30\}$ and $\gamma \in \{.5, .7, .9\}$ the best hyper-parameters were $k=10$, $\gamma = 0.7$. (SEARCH LOWER VALUES OF K??)\\
+We searched $k \in \{10, 15, 20, 25, 30\}$ and $\gamma \in \{.5, .7, .9\}$.\\
+Here is a chart of the GridSearch results, the log likelihoods for each parameter duo. \\
 
-(DO THIS ON OTHER VALUES SO ITS NOT EXACTLY THE SAME AS BLOG TUTORIAL ??)
+\includegraphics[width=400pt]{gridsearch.png} \\
+
+After discovering that the best hyper-parameters were found to be $k=10$, $\gamma = 0.7$, we decided to narrow down the grid search further, since we cared a lot about finding the highest-likelihood number of topics.  We searched $k \in \{10, 11, 12, 13, 14\}$ and still $\gamma \in \{.5, .7, .9\}$.
+
+\includegraphics[width=400pt]{gridsearch2.png} \\
+
+After this last grid search, we moved forward with the optimal $k=13$ topics (and $\gamma = 0.7$). \\
 
 
-\includegraphics{gridsearch.png} \\
-We were very pleased with the results of our model, which we visualized using Python's LDAvis library tools. 
-The visualization has two components. First, it projects each cluster onto the first two principal components of the document vector space, and shows the position of the clusters in the resulting 2D graph.   (FIX THIS DESCRIPTION IT MIGHT NOT BE ACCURATE... FIGURE OUT EXACTLY WHAT THAT PICTURE IS SHOWING). When you hover over a topic, the top 30 words for that topic are shown in decreasing order. 
+\subsubsection{Results}
+We were very pleased with the results, which we visualized using Python's LDAvis library tools. The visualization is interactive, and we recommend that you run it in our notebook, RUNME.ipynb.  \\
+
+The visualization has two primary components. First, it projects each cluster onto the first two principal components of the document vector space, and shows the position of the clusters in the resulting 2D graph.   (FIX THIS DESCRIPTION IT MIGHT NOT BE ACCURATE... FIGURE OUT EXACTLY WHAT THAT PICTURE IS SHOWING).
+
+Second, it shows the top-30 most salient terms for each cluster, and for the documents overall. When you hover over a topic, the top 30 most salient terms for that topic are shown in decreasing order.
+
+As avid NBA fans, we were very pleased to discover that our topics made great sense. The largest topic, 1, is all about player statistics (steals, blocks, defensive and offensive rates, ranks, percentages, etc.). It makes sense that this is the most prevalent topic. 
+
+\includegraphics[width=400pt]{1.png} \\
+%\includegraphics[width=400pt]{2.png} \\
+
+To its right, topic 3, seems to be about the Golden State Warriors, the best team in the NBA (mostly because of superstars Stephen Curry and Kevin Durant), and their competition in the Western Conference (including James Harden's Rockets and Russel Westbrook's Thunder). 
+\includegraphics[width=400pt]{3.png} \\
+
+Topic 4 is all about the economics of the NBA, including trade deals, free agency signing decisions, and salary information.
+\includegraphics[width=400pt]{4.png} \\
+
+Topic 5 is our personal favorite, as it is all about Lebron James.  The most salient words in topic 5 are Lebron, his team mates, his team name, his coaches, and his major rivals.  
+\includegraphics[width=400pt]{5.png} \\
+
+\includegraphics[width=400pt]{6.png} \\
+\includegraphics[width=400pt]{6_lebron.png} \\
+\includegraphics[width=400pt]{7.png} \\
+\includegraphics[width=400pt]{8.png} \\
+\includegraphics[width=400pt]{9.png} \\
+\includegraphics[width=400pt]{10.png} \\
+\includegraphics[width=400pt]{11.png} \\
+\includegraphics[width=400pt]{12.png} \\
+\includegraphics[width=400pt]{13.png} \\
+
 
 RESULT 1 PIC \\ 
 RESULT 2 PIC\\ 
