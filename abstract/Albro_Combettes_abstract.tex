@@ -78,31 +78,23 @@ for Bleacher Report}
 %   one paragraph.
 % \end{abstract}
 
-\section{Motivation}
-
+\section{Abstract and Motivation}
 % This project aims at using machine learning to generate ESPN articles.
 % The idea is to write a program to scrape a bunch of articles to form a training corpus,
 % and then build machine learning algorithms to generate new articles.
+As avid basketball fans, we needed to keep up-to-date on the National Basketball Association during our busy MBAn year. Bleacher Report, a primary digital destination for sports readers, kept us up to speed all year with its well-written articles, and so we thought about returning the favor in a project.
 
-As avid basketball fans, we have enjoyed reading a variety of NBA articles
-during our busy year in the MBAn program
-to keep up-to-date on the league. Bleacher Report, a primary digital destination
-for sports article readers, contains well written articles, and we thought about returning the
-favor.
-
-In an age of cut-throat digital competition, it is vital for websites to retain visitors. The
-hope for a Bleacher Report article reader is two-fold. First, that the visitor jumps from article to
-article on the website, rather than returning to the search engine results page. Second, that the
-visitor falls in love with the content and coverage of Bleacher Report’s articles, and develops a
+In an age of cut-throat digital competition, it is vital for websites to retain visitors. Bleacher Report's hope for a visitor is two-fold. First, that the visitor jumps from article to article on the website, rather than returning to the search engine results page. Second, that the visitor falls in love with the content and coverage of Bleacher Report's articles, and develops a
 loyalty to the website.
 
-We feel that having a micro targeted article recommendation system would provide Bleacher 
-Report with an analytics-based edge over its competitors. In this paper,
-we develop a prototype for an article recommendation system using state of the art natural 
-language processing techniques for both cleaning and analyzing Bleacher Report articles. Specifically,
-we aim to cluster over 3000 Bleacher Report articles by testing three different approaches
-for topic modeling: Word2Vec, Latent Dirichlet Allocation (LDA), 
-and Non-negative Matrix Factorization (NMF).
+We feel that having a micro-targeted article recommendation system would provide Bleacher 
+Report with an analytics-based edge over its competitors. In this project,
+we developed a prototype for an article recommendation system using state of the art NLP techniques.  Using our best model, we also produced visualizations of the Bleacher Report topic landscape and discovered interesting surprises.
+
+
+%Specifically,we aim to cluster over 3000 Bleacher Report articles by testing three different approaches
+%for topic modeling: Word2Vec, Latent Dirichlet Allocation (LDA), 
+%and Non-negative Matrix Factorization (NMF).
 
 \section{Data collection and preprocessing}
 
@@ -114,27 +106,26 @@ and Non-negative Matrix Factorization (NMF).
 % or to access to stories about a particular athlete, for example.
 
 We queried Bleacher Report NBA
-articles from last October 17, the start day of the 2017-2018 NBA season. Our entire query consisted of
+articles from October 17, 2017, the start of the 2017-2018 NBA season. Our entire query consisted of
 joining words like \emph{basketball} and \emph{NBA} with all 30 teams and the top 25 active players:
-we received 3,314 URLs in return.
-We then wrote a script to request the webpage for each URL and scrape its content, picking the
-paragraphs out of the HTML.
+we received 3,314 URLs in return.  We then wrote a script to request the webpage for each URL and scrape its content, picking the paragraphs out of the HTML.
 
-In the real world, data is never clean, and this is magnified in the case of textual data. There
-were a number of preprocessing steps we had to do before our articles were ready for analysis. In
-our cleaning efforts, we made decisions based on the purpose of our task: to cluster documents for
-better recommendation power. In particular, a bag-of-words approach to cleaning was preferred 
+There were a number of preprocessing steps we had to do before our articles were ready for analysis. Because our primary goal was text-based clustering, a bag-of-words cleaning approach was preferred 
 over one that preserved punctuation and grammar.
 
 \section{Key results}
+A reasonable document-recommendation strategy embed documents as vectors and then use K Nearest Neighbors to group documents together.  The first step in our project, then, was to choose an article embedding strategy.  We experimented with three primary methods: word2vec, Non-negative Matrix Factorization (NMF), and Latent Dirichlet Allocation (LDA). The later two methods discover underlying \textit{topics} in the articles and then express each document as a distribution over those topics.  We evaluated each approach using a hand-crafted test set. 
 
-The idea of our recommendation algorithm is to (1) generate topics from our corpus once for all
-before (2)
-recommending articles using a nearest-neighbor approach over the topic distributions of the reader's 
-recent articles. We try both LDA and NMF, and it turns out LDA has the best results for our experiment.
-Thus, we then explore the LDA-based recommmendation algorithm more in depth and display
-insightful visualizations. Topics include \emph{Stats}, \emph{Trade rumors}, \emph{Cleveland Cavaliers},
-\emph{NCAA}, and \emph{Outliers\_NFL} and \emph{Outliers\_EuropeanSoccer}.
+A preliminary analysis revealed LDA to be the most promising strategy, and so we focused the rest of our efforts on developing a quality LDA topic model, which we then use to produce visualizations of the topic landscape of Bleacher Report's NBA articles. To our surprise, the final clusters revealed that a couple of other major sports leagues snuck into our primarily NBA-driven corpus ...
+
+
+%The idea of our recommendation algorithm is to (1) generate topics from our corpus once for all
+%before (2)
+%recommending articles using a nearest-neighbor approach over the topic distributions of the reader's 
+%recent articles. We try both LDA and NMF, and it turns out LDA has the best results for our experiment.
+%Thus, we then explore the LDA-based recommmendation algorithm more in depth and display
+%insightful visualizations. Topics include \emph{Stats}, \emph{Trade rumors}, \emph{Cleveland Cavaliers},
+%\emph{NCAA}, and \emph{Outliers\_NFL} and \emph{Outliers\_EuropeanSoccer}.
 
 % \section{Impact}
 % 
