@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{Motivation and Project Abstract}{}% 1
+\BOOKMARK [1][-]{section.2}{Data Collection and Cleaning}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Data Collection}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Data Cleaning}{section.2}% 4
+\BOOKMARK [3][-]{subsubsection.2.2.1}{Punctuation Removal, Initial Stopwords, and Lowercasing}{subsection.2.2}% 5
+\BOOKMARK [3][-]{subsubsection.2.2.2}{Specialized NBA Tokenization}{subsection.2.2}% 6
+\BOOKMARK [3][-]{subsubsection.2.2.3}{Stemming Each Word}{subsection.2.2}% 7
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Trimming Down the Vocabulary}{subsection.2.2}% 8
+\BOOKMARK [1][-]{section.3}{Initial Experiment to Find Most Promising Model}{}% 9
+\BOOKMARK [2][-]{subsection.3.1}{Word2vec}{section.3}% 10
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Word2vec Pre-processing}{subsection.3.1}% 11
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Word2vec Training}{subsection.3.1}% 12
+\BOOKMARK [2][-]{subsection.3.2}{Non-Negative Matrix Factorization}{section.3}% 13
+\BOOKMARK [2][-]{subsection.3.3}{Experimental Results: LDA Wins}{section.3}% 14
+\BOOKMARK [1][-]{section.4}{Improving our Best Model: Topic Modeling with Latent Dirichlet Allocation}{}% 15
+\BOOKMARK [2][-]{subsubsection.4.0.1}{Background on LDA}{section.4}% 16
+\BOOKMARK [3][-]{subsubsection.4.0.2}{Training LDA with Grid Search}{subsubsection.4.0.1}% 17
+\BOOKMARK [3][-]{subsubsection.4.0.3}{LDA Results and Visualization}{subsubsection.4.0.1}% 18
+\BOOKMARK [1][-]{section.5}{Producing a Recommendation}{}% 19
+\BOOKMARK [1][-]{section.6}{Discussion}{}% 20
+\BOOKMARK [1][-]{section.7}{Appendix}{}% 21
