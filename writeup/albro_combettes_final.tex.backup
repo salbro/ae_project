@@ -151,12 +151,9 @@ our corpus.
 
 We applied both NMF and LDA to our corpus and eye-checked the results. At this point, our goal
 was just to see if NMF would perform better than LDA, in order to choose which method to
-continue with. We already found interesting packages to visualize LDA results, so
-LDA was our first choice but we still wanted to check if NMF would be more suited,
-though we acknowledge eye-checking might not be the most rigorous approach.
-We chose to return $k=10, 13, 15, 17, 20$ topics and printed the top 10 words for each topic.
+continue with. We chose ot return $k=10, 13, 15, 17, 20$ topics and printed the top 10 words for each topic.
 Overall, LDA returned more consistent results, while NMF would regularly return topics that 
-we cannot clearly label. For example, how would we label topic 1 in the following results:
+we cannot clearly label. For example, how would we label topic 1:
 
 \begin{ttfamily}
  Topic 0: points game rebounds series rockets season jazz thunder games assists\\
@@ -167,7 +164,7 @@ Topic 3: ...
 
 We proceeded similaryl for word2vec and concluded we should stick to LDA.
 
-\subsection{Visualization to topics using LDA}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Topic 8 seems to capture the multiple stories around the Los Angeles Lakers this season, always a popular NBA team. 
 
