@@ -6,12 +6,12 @@
 \BOOKMARK [2][-]{subsection.4.2}{Training LDA with Grid Search}{section.4}% 6
 \BOOKMARK [2][-]{subsection.4.3}{LDA Results}{section.4}% 7
 \BOOKMARK [3][-]{subsubsection.4.3.1}{Visualization}{subsection.4.3}% 8
-\BOOKMARK [3][-]{subsubsection.4.3.2}{Sanity Checking the Topics by Clustering Articles According to Topical Composition}{subsection.4.3}% 9
-\BOOKMARK [1][-]{section.5}{Producing a Recommendation: An Example}{}% 10
-\BOOKMARK [1][-]{section.6}{Discussion}{}% 11
-\BOOKMARK [1][-]{section.7}{Appendix}{}% 12
-\BOOKMARK [2][-]{subsection.7.1}{Initial Experiment to Find Most Promising Model}{section.7}% 13
-\BOOKMARK [3][-]{subsubsection.7.1.1}{Word2vec}{subsection.7.1}% 14
-\BOOKMARK [3][-]{subsubsection.7.1.2}{Non-Negative Matrix Factorization}{subsection.7.1}% 15
-\BOOKMARK [3][-]{subsubsection.7.1.3}{Experimental Results: LDA Wins}{subsection.7.1}% 16
-\BOOKMARK [2][-]{subsection.7.2}{LDA Visualization Continued}{section.7}% 17
+\BOOKMARK [3][-]{subsubsection.4.3.2}{Sanity Checking the Topics by Clustering Articles by Topical Composition}{subsection.4.3}% 9
+\BOOKMARK [1][-]{section.5}{Discussion}{}% 10
+\BOOKMARK [1][-]{section.6}{Appendix}{}% 11
+\BOOKMARK [2][-]{subsection.6.1}{Initial Experiment to Find Most Promising Model}{section.6}% 12
+\BOOKMARK [3][-]{subsubsection.6.1.1}{Word2vec}{subsection.6.1}% 13
+\BOOKMARK [3][-]{subsubsection.6.1.2}{Non-Negative Matrix Factorization}{subsection.6.1}% 14
+\BOOKMARK [3][-]{subsubsection.6.1.3}{Experimental Results: LDA Wins}{subsection.6.1}% 15
+\BOOKMARK [2][-]{subsection.6.2}{Topic Modeling and LDA Background}{section.6}% 16
+\BOOKMARK [2][-]{subsection.6.3}{LDA Visualization Continued}{section.6}% 17

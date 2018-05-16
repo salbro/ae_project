@@ -1,0 +1,14 @@
+\subsection{Sanity Checking the Topics by Clustering Articles Using Their Topical Composition}
+We already felt good about the quality of our topics because the visualizations showed them to be cohesive and comprehensive. However, as mentioned in the report, we figured that it could not hurt to cluster the articles in topic space as a final sanity-check.  We used KMedoids for this clustering, which allowed us to specify a custom distance function (KMeans does not necessarily converge for non-Euclidean distances).  Our custom distance function was the Jensen-Shannon divergence metric, which measures the similarity between two probability distributions.  This was appropriate because our articles have been expressed as distributions over topics.  (An alternative method could have been to just assign each article to a cluster of its most prevalent topic.)  Using the "elbow" method, we found that a reasonable number of article clusters was 8. We found this by plotting the total sum of distances to each medoid for various numbers of medoids and then looking for the plateauing elbow point.  \\
+
+\includegraphics[width=350pt]{jensen.png} \\
+
+Here we plot, coloring by cluster, each article along the two SVD decomposed components from the LDA output matrix. 
+
+\includegraphics[width=350pt]{svd_clusters.png} \\
+
+The first two components only capture 20\% of the variation in the data, so a 2D visualization is not great.  But it is interesting that the most clearly separately cluster (on top) corresponds to articles which are all about \textit{college} basketball as opposed to NBA basketball. Here are the 10 titles closest to the medoid of that cluster. \\
+
+\includegraphics[width=350pt]{college_medoid_closest10.png} \\
+
+Across the board, clustering based on the topical composition of the articles seemed to make good sense, and we felt confident in our topics. 

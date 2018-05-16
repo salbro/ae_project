@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  15 MAY 2018 17:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.5.23)  16 MAY 2018 16:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -772,297 +772,274 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 10.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+{/usr/local/texlive/2017/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-<gridsearch.png, id=101, 540.0175pt x 349.305pt>
+<gridsearch.png, id=89, 540.0175pt x 349.305pt>
 File: gridsearch.png Graphic file (type png)
  <use gridsearch.png>
-Package pdftex.def Info: gridsearch.png used on input line 75.
+Package pdftex.def Info: gridsearch.png used on input line 56.
 (pdftex.def)             Requested size: 225.0pt x 145.5345pt.
 
-<gridsearch2.png, id=103, 622.325pt x 395.4775pt>
+<gridsearch2.png, id=91, 622.325pt x 395.4775pt>
 File: gridsearch2.png Graphic file (type png)
  <use gridsearch2.png>
-Package pdftex.def Info: gridsearch2.png used on input line 75.
+Package pdftex.def Info: gridsearch2.png used on input line 56.
 (pdftex.def)             Requested size: 225.0pt x 142.98126pt.
 
-Overfull \hbox (12.67831pt too wide) in paragraph at lines 75--76
+Overfull \hbox (12.67831pt too wide) in paragraph at lines 56--57
 [][] [] 
  []
 
-[4 <./gridsearch.png> <./gridsearch2.png>]
-<1.png, id=118, 973.6375pt x 504.88625pt>
+[3 <./gridsearch.png> <./gridsearch2.png>]
+<1.png, id=104, 973.6375pt x 504.88625pt>
 File: 1.png Graphic file (type png)
  <use 1.png>
-Package pdftex.def Info: 1.png used on input line 85.
+Package pdftex.def Info: 1.png used on input line 66.
 (pdftex.def)             Requested size: 470.0pt x 243.72163pt.
 
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 85--86
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 66--67
 [][] 
  []
 
-<3.png, id=119, 972.63374pt x 504.88625pt>
-File: 3.png Graphic file (type png)
- <use 3.png>
-Package pdftex.def Info: 3.png used on input line 89.
-(pdftex.def)             Requested size: 470.0pt x 243.96817pt.
 
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 89--90
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 66--67
+
  []
 
-[5 <./1.png>] <4.png, id=130, 949.5475pt x 505.89pt>
+[4 <./1.png>] <4.png, id=120, 949.5475pt x 505.89pt>
 File: 4.png Graphic file (type png)
  <use 4.png>
-Package pdftex.def Info: 4.png used on input line 93.
+Package pdftex.def Info: 4.png used on input line 70.
 (pdftex.def)             Requested size: 470.0pt x 250.40474pt.
 
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 93--94
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 70--71
 [][] 
  []
 
-<5.png, id=131, 980.66376pt x 502.87875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+<5.png, id=121, 980.66376pt x 502.87875pt>
 File: 5.png Graphic file (type png)
  <use 5.png>
-Package pdftex.def Info: 5.png used on input line 97.
+Package pdftex.def Info: 5.png used on input line 74.
 (pdftex.def)             Requested size: 470.0pt x 241.01073pt.
 
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 97--98
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 74--75
 [][] 
  []
 
-[6 <./3.png> <./4.png>] <6_lebron.png, id=138, 954.56625pt x 503.8825pt>
-File: 6_lebron.png Graphic file (type png)
 
-<use 6_lebron.png>
-Package pdftex.def Info: 6_lebron.png used on input line 101.
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+<5_LeBron.png, id=122, 954.56625pt x 503.8825pt>
+File: 5_LeBron.png Graphic file (type png)
+ <use 5_LeBron.png>
+Package pdftex.def Info: 5_LeBron.png used on input line 78.
 (pdftex.def)             Requested size: 470.0pt x 248.09631pt.
 
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 101--102
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 78--79
 [][] 
  []
 
-<6.png, id=139, 963.6pt x 504.88625pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
+
+ []
+
+[5 <./4.png> <./5.png>] <6.png, id=129, 963.6pt x 504.88625pt>
 File: 6.png Graphic file (type png)
  <use 6.png>
-Package pdftex.def Info: 6.png used on input line 105.
+Package pdftex.def Info: 6.png used on input line 81.
 (pdftex.def)             Requested size: 470.0pt x 246.25623pt.
 
-Overfull \hbox (0.24498pt too wide) in paragraph at lines 104--106
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 80--82
 [] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 104--106
-
- []
-
-[7 <./5.png> <./6_lebron.png>] <7.png, id=147, 962.59625pt x 503.8825pt>
-File: 7.png Graphic file (type png)
-
-<use 7.png>
-Package pdftex.def Info: 7.png used on input line 108.
-(pdftex.def)             Requested size: 470.0pt x 246.02039pt.
-
-Overfull \hbox (0.24498pt too wide) in paragraph at lines 107--109
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 107--109
-
- []
-
-<13.png, id=148, 976.64874pt x 502.87875pt>
+<13.png, id=130, 976.64874pt x 502.87875pt>
 File: 13.png Graphic file (type png)
  <use 13.png>
-Package pdftex.def Info: 13.png used on input line 111.
+Package pdftex.def Info: 13.png used on input line 84.
 (pdftex.def)             Requested size: 470.0pt x 242.00827pt.
 
-Overfull \hbox (0.24498pt too wide) in paragraph at lines 110--112
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 83--85
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--112
+Underfull \hbox (badness 10000) in paragraph at lines 83--85
 
  []
 
-[8 <./6.png> <./7.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 117--118
+[6 <./5_LeBron.png> <./6.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 89--90
 
  []
 
-<jensen.png, id=155, 396.48125pt x 299.1175pt>
+<jensen.png, id=138, 396.48125pt x 299.1175pt>
 File: jensen.png Graphic file (type png)
  <use jensen.png>
-Package pdftex.def Info: jensen.png used on input line 119.
-(pdftex.def)             Requested size: 350.0pt x 264.05489pt.
+Package pdftex.def Info: jensen.png used on input line 91.
+(pdftex.def)             Requested size: 300.0pt x 226.3321pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 119--120
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
-[9 <./13.png>] <svd_clusters.png, id=161, 577.15625pt x 536.0025pt>
+[7 <./13.png>] <svd_clusters.png, id=146, 577.15625pt x 536.0025pt>
 File: svd_clusters.png Graphic file (type png)
 
 <use svd_clusters.png>
-Package pdftex.def Info: svd_clusters.png used on input line 123.
-(pdftex.def)             Requested size: 350.0pt x 325.0554pt.
+Package pdftex.def Info: svd_clusters.png used on input line 95.
+(pdftex.def)             Requested size: 300.0pt x 278.61658pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--124
-
- []
-
-[10 <./jensen.png> <./svd_clusters.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
-<college_medoid_closest10.png, id=168, 632.3625pt x 135.50626pt>
+<college_medoid_closest10.png, id=147, 632.3625pt x 135.50626pt>
 File: college_medoid_closest10.png Graphic file (type png)
 
 <use college_medoid_closest10.png>
-Package pdftex.def Info: college_medoid_closest10.png used on input line 127.
-(pdftex.def)             Requested size: 350.0pt x 75.00008pt.
+Package pdftex.def Info: college_medoid_closest10.png used on input line 99.
+(pdftex.def)             Requested size: 400.0pt x 85.71468pt.
+ [8 <./jensen.png> <./svd_clusters.png>]
+[9 <./college_medoid_closest10.png>]
+<james_word2vec.png, id=159, 269.005pt x 98.3675pt>
+File: james_word2vec.png Graphic file (type png)
+ <use james_word2vec.png>
+Package pdftex.def Info: james_word2vec.png used on input line 131.
+(pdftex.def)             Requested size: 200.0pt x 73.1345pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 127--128
+<word2vec_diffs.png, id=160, 823.075pt x 99.37125pt>
+File: word2vec_diffs.png Graphic file (type png)
+ <use word2vec_diffs.png>
+Package pdftex.def Info: word2vec_diffs.png used on input line 134.
+(pdftex.def)             Requested size: 450.0pt x 54.32986pt.
 
+Overfull \hbox (10.24498pt too wide) in paragraph at lines 133--135
+[] 
  []
 
-<newarttopics.png, id=169, 422.57875pt x 215.80624pt>
-File: newarttopics.png Graphic file (type png)
- <use newarttopics.png>
-Package pdftex.def Info: newarttopics.png used on input line 134.
-(pdftex.def)             Requested size: 300.0pt x 153.21033pt.
+[10 <./james_word2vec.png> <./word2vec_diffs.png>] [11]
+<3.png, id=175, 972.63374pt x 504.88625pt>
+File: 3.png Graphic file (type png)
+ <use 3.png>
+Package pdftex.def Info: 3.png used on input line 186.
+(pdftex.def)             Requested size: 470.0pt x 243.96817pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--135
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--143
-
- []
-
-<preds.png, id=170, 509.905pt x 64.24pt>
-File: preds.png Graphic file (type png)
- <use preds.png>
-Package pdftex.def Info: preds.png used on input line 144.
-(pdftex.def)             Requested size: 509.90375pt x 64.23984pt.
-
-Overfull \hbox (40.14873pt too wide) in paragraph at lines 144--145
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 186--187
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 144--145
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
-[11 <./college_medoid_closest10.png> <./newarttopics.png>]
-<james_word2vec.png, id=177, 269.005pt x 98.3675pt>
-File: james_word2vec.png Graphic file (type png)
- <use james_word2vec.png>
-Package pdftex.def Info: james_word2vec.png used on input line 161.
-(pdftex.def)             Requested size: 200.0pt x 73.1345pt.
+<7.png, id=176, 962.59625pt x 503.8825pt>
+File: 7.png Graphic file (type png)
+ <use 7.png>
+Package pdftex.def Info: 7.png used on input line 189.
+(pdftex.def)             Requested size: 470.0pt x 246.02039pt.
 
-[12 <./preds.png>] <word2vec_diffs.png, id=183, 823.075pt x 99.37125pt>
-File: word2vec_diffs.png Graphic file (type png)
-
-<use word2vec_diffs.png>
-Package pdftex.def Info: word2vec_diffs.png used on input line 164.
-(pdftex.def)             Requested size: 450.0pt x 54.32986pt.
-
-Overfull \hbox (10.24498pt too wide) in paragraph at lines 163--165
+Overfull \hbox (0.24498pt too wide) in paragraph at lines 188--190
 [] 
  []
 
-<8.png, id=184, 970.62625pt x 501.875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 188--190
+
+ []
+
+<8.png, id=177, 970.62625pt x 501.875pt>
 File: 8.png Graphic file (type png)
  <use 8.png>
-Package pdftex.def Info: 8.png used on input line 197.
+Package pdftex.def Info: 8.png used on input line 193.
 (pdftex.def)             Requested size: 470.0pt x 243.02617pt.
+
+Overfull \hbox (30.24498pt too wide) in paragraph at lines 193--194
+[][] 
+ []
+
+[12 <./3.png> <./7.png>] <9.png, id=185, 967.615pt x 504.88625pt>
+File: 9.png Graphic file (type png)
+ <use 9.png>
+Package pdftex.def Info: 9.png used on input line 197.
+(pdftex.def)             Requested size: 470.0pt x 245.23932pt.
 
 Overfull \hbox (30.24498pt too wide) in paragraph at lines 197--198
 [][] 
  []
 
-[13 <./james_word2vec.png> <./word2vec_diffs.png>]
-<9.png, id=194, 967.615pt x 504.88625pt>
-File: 9.png Graphic file (type png)
- <use 9.png>
-Package pdftex.def Info: 9.png used on input line 201.
-(pdftex.def)             Requested size: 470.0pt x 245.23932pt.
+<10.png, id=186, 968.61874pt x 502.87875pt>
+File: 10.png Graphic file (type png)
+ <use 10.png>
+Package pdftex.def Info: 10.png used on input line 201.
+(pdftex.def)             Requested size: 470.0pt x 244.011pt.
 
 Overfull \hbox (30.24498pt too wide) in paragraph at lines 201--202
 [][] 
  []
 
-<10.png, id=195, 968.61874pt x 502.87875pt>
-File: 10.png Graphic file (type png)
- <use 10.png>
-Package pdftex.def Info: 10.png used on input line 205.
-(pdftex.def)             Requested size: 470.0pt x 244.011pt.
+[13 <./8.png> <./9.png>] <11.png, id=194, 949.5475pt x 504.88625pt>
+File: 11.png Graphic file (type png)
+
+<use 11.png>
+Package pdftex.def Info: 11.png used on input line 205.
+(pdftex.def)             Requested size: 470.0pt x 249.9079pt.
 
 Overfull \hbox (30.24498pt too wide) in paragraph at lines 205--206
 [][] 
  []
 
-[14 <./8.png> <./9.png>] <11.png, id=202, 949.5475pt x 504.88625pt>
-File: 11.png Graphic file (type png)
-
-<use 11.png>
-Package pdftex.def Info: 11.png used on input line 209.
-(pdftex.def)             Requested size: 470.0pt x 249.9079pt.
+<12.png, id=195, 965.6075pt x 505.89pt>
+File: 12.png Graphic file (type png)
+ <use 12.png>
+Package pdftex.def Info: 12.png used on input line 209.
+(pdftex.def)             Requested size: 470.0pt x 246.23634pt.
 
 Overfull \hbox (30.24498pt too wide) in paragraph at lines 209--210
 [][] 
  []
 
-<12.png, id=203, 965.6075pt x 505.89pt>
-File: 12.png Graphic file (type png)
- <use 12.png>
-Package pdftex.def Info: 12.png used on input line 213.
-(pdftex.def)             Requested size: 470.0pt x 246.23634pt.
+[14 <./10.png> <./11.png>] <2.png, id=202, 973.6375pt x 506.89375pt>
+File: 2.png Graphic file (type png)
+
+<use 2.png>
+Package pdftex.def Info: 2.png used on input line 213.
+(pdftex.def)             Requested size: 470.0pt x 244.69072pt.
 
 Overfull \hbox (30.24498pt too wide) in paragraph at lines 213--214
 [][] 
  []
 
-[15 <./10.png> <./11.png>] <2.png, id=210, 973.6375pt x 506.89375pt>
-File: 2.png Graphic file (type png)
-
-<use 2.png>
-Package pdftex.def Info: 2.png used on input line 217.
-(pdftex.def)             Requested size: 470.0pt x 244.69072pt.
-
-Overfull \hbox (30.24498pt too wide) in paragraph at lines 217--218
-[][] 
- []
-
-[16 <./12.png> <./2.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 221.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 221.
+[15 <./12.png> <./2.png>]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
  (./albro_combettes_final.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 221.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 221.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `albro_combettes_final.out' has not changed.
-(rerunfilecheck)             Checksum: FF67BA9CE36BCB230DB7E624B723121C;1273.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 221.
+(rerunfilecheck)             Checksum: D34B059A81998CFFC5564809AE97EC03;1272.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 18095 strings out of 492995
- 335650 string characters out of 6132704
+ 18084 strings out of 492995
+ 335490 string characters out of 6132704
  406157 words of memory out of 5000000
- 21258 multiletter control sequences out of 15000+600000
+ 21250 multiletter control sequences out of 15000+600000
  14401 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,61p,1625b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,8n,61p,1401b,323s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
@@ -1079,10 +1056,10 @@ ve/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texlive/
 7/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2017
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2017/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on albro_combettes_final.pdf (16 pages, 2621994 bytes).
+Output written on albro_combettes_final.pdf (15 pages, 2537052 bytes).
 PDF statistics:
- 280 PDF objects out of 1000 (max. 8388607)
- 198 compressed objects within 2 object streams
- 39 named destinations out of 1000 (max. 500000)
- 264 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 272 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
+ 38 named destinations out of 1000 (max. 500000)
+ 254 words of extra memory for PDF output out of 10000 (max. 10000000)
 
