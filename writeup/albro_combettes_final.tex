@@ -4,7 +4,7 @@
 \usepackage{booktabs}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
-\title{The Analytics Edge, Final Report:\\ Building a Topic Model as a First Step Toward an Article Recommender for Bleacher Report Basketball}
+\title{The Analytics Edge, Final Report:\\ Basketball Article Recommender for Bleacher Report}
 \author{for Professor Dimitris Bertsimas and Emma Gibson \text{ } \\ \\ by Stephen Albro \& Cyrille Combettes \\ salbro@mit.edu, cyrille@mit.edu}
 \begin{document}
 \maketitle{}
@@ -13,19 +13,37 @@
 \section{Motivation and Project Abstract}
 Websites need to retain visitors to compete for advertising revenue. Bleacher Report, a primary online destination for sports readers, competes for an audience with ESPN.com and others. Bleacher Report has a two-fold hope for each visitor. First, \textit{prolonged} visits: that the visitor spends a lot of time on the website, jumping from article to article.  Second, \textit{frequent} visits: that the visitor develops loyalty to the website.  We feel that having a micro-targeted article recommendation system would help Bleacher Report foster long visits and loyalty among its readers, providing an analytics-based edge over its competitors.  As basketball fans, we developed a strong first step toward a basketball article recommender system.
 
-A reasonable way to build an article recommender is to \textit{embedding} each article in some meaningful vector space, and then, using visitor's history, recommend nearest neighbors within that space. This project focuses on exploring an article-embedding strategy based on \textit{topics} found in the articles. This strategy is known as \textit{topic modeling}, and approach we chose is \textit{Latent Dirichlet Allocation (LDA)}.  
+A reasonable way to build an article recommender is to \textit{embed} each article in some meaningful vector 
+space, and then, using visitor's history, recommend nearest neighbors within that space. This project focuses on 
+exploring an article-embedding strategy based on \textit{topics} found in the articles. This strategy is known as 
+\textit{topic modeling},
+and the approach we chose is \textit{Latent Dirichlet Allocation} (LDA).  
 
-We briefly note that we determined LDA to be the most promising from among three article-embedding approaches by conducting an initial experiment, which  can be found in the appendix. We tested two other approaches: word2vec title embeddings, and Non-Negative Matrix Factorization topic modeling. 
+We briefly note that we determined LDA to be the most promising
+from among three article-embedding approaches by conducting an initial experiment,
+which  can be found in the appendix. We tested two other approaches: \emph{word2vec} title
+embeddings, and \emph{Non-Negative Matrix Factorization} topic modeling (NMF). 
 
 \section{Data Collection}
 Bleacher Report does not provide database access to articles.  However, NewsAPI is a company that provides access to news metadata, including URLs, from a variety of sources including Bleacher Report.  We queried NewsAPI for Bleacher Report articles from the start of the 2017-2018 NBA season. Our entire query consisted of joining the terms \textit{basketball} and \textit{NBA} with all 30 teams and the top 25 players.  We then scraped all 3314 URLs to obtain the articles.
 
-\section{Data Cleaning}
-Real-world data is never clean, but text data is particularly messy. Much preprocessing was necessary to prepare the articles for analysis. We made cleaning decisions with topic modeling in mind.  In particular, a bag-of-words cleaning approach was chosen over one that preserved grammar.
+\section{Data Cleaning and Preprocessing}
+Real-world data is never clean, but text data is particularly messy. Much preprocessing was necessary
+to prepare the articles for analysis. We made cleaning decisions with topic modeling in mind. 
+In particular, a bag-of-words cleaning approach was chosen over one that preserved grammar.
 
-First, we \textit{tokenized} each article. In natural language processing, tokenizing means chopping a document into pieces, the most common way being to tokenize by \textit{word}. This is what we did.  We discarded non-alphabetical tokens (e.g. 8pm, 704, !, .) and converted everything to lower case.  Then, we removed 170 basic \textit{stop-words}, such as \textit{a, the, his}, and \textit{my}. 
+First, we \textit{tokenized} each article. In natural language processing, tokenizing means 
+chopping a document into pieces, the most common way being to tokenize by \textit{word}. 
+This is what we did.  We discarded non-alphabetical tokens (e.g. 8pm, 704, !, .) and 
+converted everything to lower case.  Then, we removed 170 basic \textit{stop-words}, 
+such as \textit{a, the, his}, and \textit{my}. 
 
-Next, we needed to create custom tokens for players, teams, and coaches, since each player can be referred to in a variety of ways. For example, the NBA superstar LeBron James can also be called LeBron, Bron, or James.  We replaced all forms of each entity with a full, underscored version, so that, for example, every form of the above superstar would be converted to lebron\_james.  At times it was necessary to \textit{infer} the meaning of a word from ambiguous usage. For example, we concluded that the word \textit{Boston} should be replaced by boston\_celtics only if the entire phrase Boston Celtics appeared somewhere else in the article.  This application-specific tokenization allowed us to capture more contextual information about each superstar, team, and coach.
+Next, we needed to create custom tokens for players, teams, and coaches, since each player
+can be referred to in a variety of ways. For example, the NBA superstar LeBron James can
+also be called LeBron, Bron, or James.  We replaced all forms of each entity with a full,
+underscored version, so that, for example, every form of the above superstar would be converted 
+to lebron\_james.  At times it was necessary to \textit{infer} the meaning of a word from ambiguous
+usage. For example, we concluded that the word \textit{Boston} should be replaced by boston\_celtics only if the entire phrase Boston Celtics appeared somewhere else in the article.  This application-specific tokenization allowed us to capture more contextual information about each superstar, team, and coach.
 
 Next, we \textit{stemmed} each word. Stemming addresses the fact that the root of a word (e.g. \textit{play}) can take different grammatical forms (\textit{playing, played, plays}). A stemming simplification makes sense for topic modeling.
 
@@ -42,7 +60,7 @@ In this section we introduce and discuss the training and tuning of our LDA topi
 \subsection{Introduction to Topic Modeling and LDA}
 We introduce topic modeling and LDA more thoroughly in the appendix, but let us mention a few things.
 
-Topic modeling aims to discover $k$ \textit{topics} from among a set of articles, and to estimate the proportion of each topic in each article.  A \textit{topic} is defined as a frequency distribution over all words in the vocabulary: for each topic, each word has a frequency of occurrence.  If topic modeling is successful, the high-frequency words for each topic will frequently appear together in text and will resemble the human understanding of a topic. 
+Topic modeling aims to discover $k$ topics from among a set of articles, and to estimate the proportion of each topic in each article.  A \textit{topic} is defined as a frequency distribution over all words in the vocabulary: for each topic, each word has a frequency of occurrence.  If topic modeling is successful, the high-frequency words for each topic will frequently appear together in text and will resemble the human understanding of a topic. 
 
 Latent Dirichlet Allocation (LDA) is a type of topic model that assumes a generative story about the data.  We provide $k$, the number of topics, and LDA infers the latent topic-word distributions and article-topic distributions by using maximum likelihood estimation according to the generative story.  LDA's name comes from sparse Dirichlet priors that it employs: each document is assumed to come from only a small set of topics, and each topic is assumed to cover only a small set of words.
 
@@ -51,48 +69,97 @@ In the end, the fitted model allows us to achieve our goal of embedding each art
 \subsection{Training LDA with Grid Search}
 When training the LDA model in Python, we fine-tuned two hyper-parameters using grid-search cross-validation. The first was $k$, the number of topics.  The second was $\gamma$, the solver's learning rate.  Since topic modeling is an unsupervised problem, there was no need for a separate validation set, nor was there a supervising variable.  Instead, we used the log-likelihood of the trained model as our measure of model quality. 
 
-First, we searched $k \in \{10, 15, 20, 25, 30\}$ and $\gamma \in \{.5, .7, .9\}$. On the left we plot the log-likelihoods for each parameter duo. After discovering finding an optimal $k=10$ and $\gamma = 0.7$, we narrowed the grid search (right) to find the absolute best $k$.  After searching $k \in \{10, 11, 12, 13, 14\}$ and $\gamma \in \{.5, .7, .9\}$, we found the optimal $k=13$ topics and $\gamma = 0.7$. \\
+First, we searched $k \in \{10, 15, 20, 25, 30\}$ and $\gamma \in \{0.5, 0.7, 0.9\}$. On the left we plot the 
+log-likelihoods for each parameter duo. After discovering finding an optimal $k=10$ and $\gamma = 0.7$, 
+we narrowed the grid search (right) to find the absolute best $k$.  After searching $k \in \{10, 11, 12, 13, 14\}$ 
+and $\gamma \in \{0.5, 0.7, 0.9\}$, we found the optimal $k=13$ topics and $\gamma = 0.7$. \\
 
 \includegraphics[width=225pt]{gridsearch.png} \includegraphics[width=225pt]{gridsearch2.png} 
 
 \subsection{LDA Results}
 \subsubsection{Visualization}
-As avid NBA fans, we were pleased to discover that our topics made sense.  We visualized them using LDAvis, a method developed by Carson Siever and Kenneth Shirley \footnote{Sievert, Carson and Shirley, Kenneth. "LDAvis: A method for visualizing and interpreting topics". \textit{Proceedings of the Workshop of Interactive Language Learning, Visualization, and Interfaces}, pages 63-70, Baltimore, Maryland, USA, June 27, 2014. Their Github can be found \href{https://github.com/cpsievert/LDAvis}{here}}.  The visualization has two components.  On the left, each circle corresponds to a topic and has a size  proportional to that topic's prevalence across all articles. The layout of the topics is a 2D projection of their distance from one another, with distance here being the Jensen-Shannon divergence of two probability distributions (which is what topics are). \footnote{Specifically, a matrix of inter-topic distances is generated, where each row in the matrix contains one topic's distances to every other topic.  The rows are then projected to 2D using Principal Component Analysis. (Though the topics themselves make sense, we cannot detect any semantic meaning in the first two principal components.) This visualization technique is known as \textit{multidimensional scaling}, and typically performed on distance matrices, as is the case here.}
+As avid NBA fans, we were pleased to discover that our topics made sense. 
+We visualized them using LDAvis, a method developed by Carson Siever and Kenneth Shirley\footnote{Sievert, 
+Carson and Shirley, Kenneth. "LDAvis: A method for visualizing and
+interpreting topics". \textit{Proceedings of the Workshop of Interactive Language Learning,
+Visualization, and Interfaces}, pages 63-70, Baltimore, Maryland, USA, June 27, 2014. 
+Their Github can be found \href{https://github.com/cpsievert/LDAvis}{here}.}. 
+The visualization has two components.  On the left, each circle corresponds to a topic and 
+has a size  proportional to that topic's prevalence across all articles. The layout of
+the topics is a 2D projection of their distance from one another, with distance here 
+being the Jensen-Shannon divergence of two probability distributions (which is what 
+topics are)\footnote{Specifically, a matrix of inter-topic distances is generated,
+where each row in the matrix contains one topic's distances to every other topic.  
+The rows are then projected to 2D using Principal Component Analysis. (Though the 
+topics themselves make sense, we cannot detect any semantic meaning in the first 
+two principal components.) This visualization technique is known as 
+\textit{multidimensional scaling}, and typically performed on distance matrices, as is the case here.}.
 
-On the right, the red bars indicate the estimated number of times a given term came from a given topic and the blue bars are that term's overall frequency. When you hover over a topic, the 30 most relevant terms from that topic are shown.\footnote{$\text{relevance}(w | t) = p(w | t) + p(w | t)*p(w)$}  Our visualization is interactive, and we recommend running it in our notebook, RUNME.ipynb.  However this is not completely necessary; we show the topics here. 
+On the right, the red bars indicate the estimated number of times a given term 
+came from a given topic and the blue bars are that term's overall frequency. When
+you hover over a topic, the 30 most relevant terms from that topic are
+shown\footnote{$\text{relevance}(w\given t) = p(w\given t) + p(w\given t)p(w)$}. Our visualization
+is interactive, and we recommend running it in our notebook, RUNME.ipynb. 
+However this is not completely necessary; we show the topics here. 
 
-The most prevalent topic, 1, is about NBA \textit{statistics} (steals, blocks, rates, ranks, percentages, ...). The keywords reveal this.  It makes sense that this is the most prevalent topic in a corpus of NBA articles. 
+The most prevalent topic, 1, is about NBA \textit{statistics} 
+(steals, positions, blocks, rates, ranks, percentages, ...). The keywords reveal this.  It makes sense that this is the most prevalent topic in a corpus of NBA articles. 
 
 \includegraphics[width=470pt]{1.png} \\
 
-Another large topic, 4, is all about NBA \textit{economics}, including trade deals, free agency signing decisions, and salary information.  In case anyone was wondering, the first four words in this topic tell us a bit about NBA compensation.
+Another large topic, 4, is all about NBA \textit{economics}, including trade deals, 
+free agency signing decisions, and salary information.  In case anyone was wondering, the first four words in this topic tell us a bit about NBA compensation.
 
 \includegraphics[width=470pt]{4.png} \\
 
-Topic 5, our favorite, is about LeBron James and his team.  The most salient words are LeBron, his team mates, his team name, his coaches, and his major rivals.  
+Topic 5, our favorite, is about LeBron James and his team.  The most salient words are
+LeBron, his team mates, his team name, his coaches, and his major rivals.  
 
 \includegraphics[width=470pt]{5.png} \\
 
-In fact, if you hover over the term \textbf{lebron\_jam}, you can see his primary topics. Topic 5 dominates.
+In fact, if you hover over the term \texttt{lebron\_jam}, you can see his primary topics. Topic 5 dominates.
 
-\includegraphics[width=470pt]{5_LeBron.png}  \\
+\includegraphics[width=470pt]{5_lebron.png}  \\
 
 Topic 6 collected the terms pertaining to the NCAA March Madness college tournament, which pushes aside the NBA for a month as college basketball takes center stage.  Michigan and Villanova are primary terms; they played in the championship this year. \\
-\includegraphics[width=470pt]{6.png} \\s
 
-Topic 13 is actually about soccer!  The API must have returned a handful of soccer-related articles for some reason, and our LDA model discovered that. \\
+\includegraphics[width=470pt]{6.png} \\
+
+Topic 13 is actually about soccer!  The API must have returned a handful of 
+soccer-related articles for some reason, and our LDA model discovered that.
+It is a great success that our LDA model is able to perfectly separate outliers --
+no basketball article is in topic 13:\\
 \includegraphics[width=470pt]{13.png} \\
+
+We observe the keywords \emph{unit} for Manchester United, \emph{goal},
+\emph{pogba} for Manchester United superstar Paul Pogba, \emph{red} for \emph{Red Devils}
+(Manchester United's team nickname), \emph{mourinho} for Manchester United's head coach
+Jose Mourinho, etc.
 
 For brevity, we have left other topics in the appendix.
 
 \subsubsection{Sanity Checking the Topics by Clustering Articles by Topical Composition}
-The visualizations showed cohesive and comprehensive topics. However, we wanted to cluster the articles in topic space as a final sanity-check.  We used K-Medoids for clustering, since it allowed us to provide a custom distance function. \footnote{KMeans does not necessarily converge for non-Euclidean distances}  Our custom distance function was the Jensen-Shannon divergence metric, which as mentioned above, measures the similarity between two probability distributions.  This distance was appropriate because the articles have been embedded as topic mixtures.  (An alternative method could be to cluster the articles by their most prevalent topic.)  We found $k=8$ to be the number of clusters that captures most of the variation in the articles without overfitting. We found this by plotting the total sum of distances to each medoid for various numbers of medoids, and then looking for the elbow point.  \\
+The visualizations showed cohesive and comprehensive topics. However, we wanted to cluster
+the articles in topic space as a final sanity-check.  We used $k$-medoids for clustering,
+since it allowed us to provide a custom distance function\footnote{$k$-means does not 
+necessarily converge for non-Euclidean distances}.
+Our custom distance function was the Jensen-Shannon divergence metric, which as mentioned above,
+measures the similarity between two probability distributions.
+This distance was appropriate because the articles have been embedded as topic mixtures. 
+(An alternative method could be to cluster the articles by their most prevalent topic.) 
+We found $k=8$ to be the number of clusters that captures most of the variation in the
+articles without overfitting. We found this by plotting the total sum of distances to each
+medoid for various numbers of medoids, and then looking for the elbow point.
 
-\includegraphics[width=300pt]{jensen.png} \\
+\begin{center}
+ \includegraphics[scale=0.6]{jensen.png}
+\end{center}
 
-Here we plot the two SVD decomposed components for each article, coloring by cluster.
+Here we plot the two SVD decomposed components for each article, coloring by cluster:
 
-\includegraphics[width=300pt]{svd_clusters.png} \\
+\begin{center}
+\includegraphics[scale=0.5]{svd_clusters.png}
+\end{center}
 
 The first two components only capture 20\% of the variation in the data, so a 2D visualization drops a lot of information.  But it is interesting that the most distinct cluster (the teal cluster on top) corresponds to articles which are all about \textit{college} basketball as opposed to \textit{NBA} basketball. Here are the 10 titles closest to the medoid of that cluster.  They're all about the March Madness tournament. 
 
@@ -113,8 +180,11 @@ Across the board, our topic-based clustering seemed to make good sense, so we fe
  
 % While some articles feel like they are not relevant (notably the first two), notice that the other three recommendations are on-point in discussing LeBron James' upcoming free agency decisions. 
 
-\section{Discussion}
+\section{Conlusion and Discussion}
 Most of the world's data is unstructured natural language, and NLP provides an analytics edge in many online domains.  In this project we learned a lot, from data scraping and cleaning to building topic models. We explored three common ways of finding vector-embeddings for articles, and then we took a deep dive into one of them, topic modeling with Latent Dirichlet Allocation. The vector-space article embedding was motivated by a desire to provide nearest-neighbor based recommendations.  This project does not test specific recommendations, as it explored only the article-embedding approach.  But an exciting next step would be to test our topic-based recommender system using click-through data from BleacherReport.com.
+
+\vspace{25mm}
+\hfill Word count: 1939.\hspace{-10mm}
 
 \newpage
 

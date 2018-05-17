@@ -1,13 +1,13 @@
 \BOOKMARK [1][-]{section.1}{Motivation and Project Abstract}{}% 1
 \BOOKMARK [1][-]{section.2}{Data Collection}{}% 2
-\BOOKMARK [1][-]{section.3}{Data Cleaning}{}% 3
+\BOOKMARK [1][-]{section.3}{Data Cleaning and Preprocessing}{}% 3
 \BOOKMARK [1][-]{section.4}{Topic Modeling with Latent Dirichlet Allocation}{}% 4
 \BOOKMARK [2][-]{subsection.4.1}{Introduction to Topic Modeling and LDA}{section.4}% 5
 \BOOKMARK [2][-]{subsection.4.2}{Training LDA with Grid Search}{section.4}% 6
 \BOOKMARK [2][-]{subsection.4.3}{LDA Results}{section.4}% 7
 \BOOKMARK [3][-]{subsubsection.4.3.1}{Visualization}{subsection.4.3}% 8
 \BOOKMARK [3][-]{subsubsection.4.3.2}{Sanity Checking the Topics by Clustering Articles by Topical Composition}{subsection.4.3}% 9
-\BOOKMARK [1][-]{section.5}{Discussion}{}% 10
+\BOOKMARK [1][-]{section.5}{Conlusion and Discussion}{}% 10
 \BOOKMARK [1][-]{section.6}{Appendix}{}% 11
 \BOOKMARK [2][-]{subsection.6.1}{Initial Experiment to Find Most Promising Model}{section.6}% 12
 \BOOKMARK [3][-]{subsubsection.6.1.1}{Word2vec}{subsection.6.1}% 13
